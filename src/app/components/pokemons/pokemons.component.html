@@ -1,0 +1,15 @@
+<div *ngIf="pokemonListResult">
+    <h1 class="page-title">Lista de Pokémons</h1>
+  
+    <div class="pokemon-grid">
+      <div class="pokemon-card" *ngFor="let pokemon of pokemonListResult.results">
+        <h2>{{ pokemon.name }}</h2>
+  
+        <!-- Exibição das sprites do Pokémon -->
+        <div *ngIf="pokemon.details && pokemon.details.sprites">
+          <img [src]="pokemon.details.sprites.front_default" alt="Front Default">
+          <!-- Adicione outras imagens de sprites aqui, se necessário -->
+        </div>
+      </div>
+    </div>
+  </div>

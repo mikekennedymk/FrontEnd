@@ -8,10 +8,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { UsuariosService } from './services/usuarios.service';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { AppComponent } from './app.component'; // Importe o AppComponent aqui
+import { PokemonsComponent } from './components/pokemons/pokemons.component'; // Importe o PokemonsComponent aqui
+import { PokemonService } from './services/pokemons.service';
 
 @NgModule({
   declarations: [
     UsuariosComponent,
+    PokemonsComponent
     // outros componentes
   ],
   imports: [
@@ -22,7 +25,7 @@ import { AppComponent } from './app.component'; // Importe o AppComponent aqui
     AppRoutingModule,
     ModalModule.forRoot()
   ],
-  providers: [UsuariosService],
+  providers: [UsuariosService, PokemonService],
   bootstrap: []
 })
 export class AppModule {

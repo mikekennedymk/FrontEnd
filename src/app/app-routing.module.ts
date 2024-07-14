@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { PokemonsComponent } from './components/pokemons/pokemons.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'usuarios', pathMatch: 'full' }, // Redireciona para '/usuarios' ao acessar '/'
   { path: 'usuarios', component: UsuariosComponent },
+  { path: 'pokemons', component: PokemonsComponent },
+
   // outras rotas
 ];
 
