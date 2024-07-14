@@ -1,10 +1,10 @@
 <div class="container p-5" *ngIf="visibilidadeTabela">
     <div class="border border-light rounded p-5">
         <div>
-        <button type="button" class="btn btn-sm btn-secondary" (click)="ShowForm()">
-            Novo Usuário
-        </button>
-    </div>
+            <button type="button" class="btn btn-sm btn-secondary" (click)="ShowForm()">
+                Novo Usuário
+            </button>
+        </div>
         <hr />
         <table class="table table-striped table-hover table-sm" *ngIf="usuarios">
             <tr class="thead-light">
@@ -29,8 +29,10 @@
                     {{usuario.criadoEm}}
                 </td>
                 <td>
-                    <button type="button" class="btn btn-sm btn-outline-info">Atualizar</button> |
-                    <button type="button" class="btn btn-sm btn-outline-danger">Excluir</button>
+                    <button type="button" class="btn btn-sm btn-outline-info"
+                        (click)="ShowFormUpdate(usuario.id)">Atualizar</button> |
+                    <button type="button" class="btn btn-sm btn-outline-danger"
+                        (click)="ShowDelete(usuario.id, usuario.nome, modelContent)">Excluir</button>
 
                 </td>
             </tr>
@@ -41,9 +43,9 @@
 
 
 <div class="container p-5" *ngIf="visibilidadeForm">
-    <div class="row" >
+    <div class="row">
         <div class="col-6 border-light rounded p-5 shadow" *ngIf="form">
-            <h6>{{formTitle}}</h6>
+            <h1>{{formTitle}}</h1>
             <hr />
             <form [formGroup]="form" (ngSubmit)="salvarFormulario()">
                 <div class="form-group">
@@ -76,3 +78,19 @@
         </div>
     </div>
 </div>
+
+<ng-template #modelContent>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Confirmar Exclusão</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        Deseja Excluir o Usuário {{nome}}?
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modalRef.hide()">Não</button>
+        <button type="button" class="btn btn-outline-danger" (click)="DeleteUser(id)">Sim</button>
+    </div>
+</ng-template>

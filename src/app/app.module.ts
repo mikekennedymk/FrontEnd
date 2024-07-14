@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ApplicationRef, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
@@ -7,6 +7,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { AppRoutingModule } from './app-routing.module';
 import { UsuariosService } from './services/usuarios.service';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { AppComponent } from './app.component'; // Importe o AppComponent aqui
 
 @NgModule({
   declarations: [
@@ -21,6 +22,15 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
     AppRoutingModule,
     ModalModule.forRoot()
   ],
-  providers: [UsuariosService, HttpClientModule]
+  providers: [UsuariosService],
+  bootstrap: []
 })
-export class AppModule { }
+export class AppModule {
+  
+  constructor(private appRef: ApplicationRef) {}
+  ngDoBootstrap() {
+    this.appRef.bootstrap(AppComponent); // Inicializando manualmente o componente
+  }
+
+ }
+
