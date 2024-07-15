@@ -1,0 +1,8 @@
+<div *ngIf="pokemonDetail">
+    <button (click)="goBack()" class="btn btn-sm btn-light">Voltar</button>
+    <h1>{{ pokemonDetail?.name }}</h1>
+    <img *ngIf="pokemonDetail?.sprites?.front_default" [src]="pokemonDetail?.sprites?.front_default" alt="Front Default">
+    <img *ngIf="pokemonDetail?.sprites?.back_default" [src]="pokemonDetail?.sprites?.back_default" alt="Back Default">
+    <img *ngIf="pokemonDetail?.sprites?.front_shiny" [src]="pokemonDetail?.sprites?.front_shiny" alt="Front Shiny">
+    <img *ngIf="pokemonDetail?.sprites?.back_shiny" [src]="pokemonDetail?.sprites?.back_shiny" alt="Back Shiny">
+  </div>

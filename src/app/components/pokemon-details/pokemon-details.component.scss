@@ -1,0 +1,36 @@
+.pokemon-details {
+    .slider {
+      display: flex;
+      overflow-x: hidden;
+      width: 100%;
+      margin-bottom: 10px;
+      position: relative;
+      height: 200px; /* Altura fixa para as imagens do slider */
+    }
+  
+    .slide {
+      min-width: 100%;
+      transition: transform 0.5s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+    }
+  
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  
+    .slide img {
+      max-width: 100%;
+      height: auto;
+    }
+  
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      width: 100px; /* Ajuste conforme necessário */
+    }
+  }

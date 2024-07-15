@@ -10,11 +10,12 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { AppComponent } from './app.component'; // Importe o AppComponent aqui
 import { PokemonsComponent } from './components/pokemons/pokemons.component'; // Importe o PokemonsComponent aqui
 import { PokemonService } from './services/pokemons.service';
-
+import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-details.component';
 @NgModule({
   declarations: [
     UsuariosComponent,
-    PokemonsComponent
+    PokemonsComponent,
+    PokemonDetailsComponent
     // outros componentes
   ],
   imports: [

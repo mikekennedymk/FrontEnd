@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../../services/pokemons.service';
 import { PokemonListResult } from '../../models/PokemonListResult';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon',
@@ -10,10 +11,10 @@ import { PokemonListResult } from '../../models/PokemonListResult';
 export class PokemonsComponent implements OnInit {
   pokemonListResult: PokemonListResult | null = null;
 
-  constructor(private pokemonService: PokemonService) {}
+  constructor(private pokemonService: PokemonService, private router: Router) {}
 
   ngOnInit(): void {
-    this.getAllPokemons(); // Chama o método para obter todos os Pokémon
+    this.getAllPokemons(); 
   }
 
   getAllPokemons(): void {
@@ -27,4 +28,9 @@ export class PokemonsComponent implements OnInit {
       }
     );
   }
+
+  viewPokemonDetail(name: string): void {
+    this.router.navigate(['/pokemons/pokemon-details', name]); // Remova ':' antes de 'name'
+  }
+
 }
